@@ -1,0 +1,5 @@
+MySQL 5.6版本引入explicit_defaults_for_timestamp来控制对timestamp NULL值的处理
+如果该参数不开启，则对时间戳NOT NULL插入NULL值，不报错，无警告，插入后的值为当前时间间
+如果想要插入空值不报错需设置explicit_defaults_for_timestamp为off
+show variables like '%explicit_defaults_for_timestamp%'; 该命令查看状态
+SET GLOBAL explicit_defaults_for_timestamp = off; 该命令设置为off，需要重启以后才生效

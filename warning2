@@ -1,0 +1,11 @@
+mysql报 Authentication plugin 'caching_sha2_password' cannot be loaded 错解决方案
+
+这是因为新版mysql数据库的加密方式变了：
+
+使用 select user,plugin from user where user='root'; 查看加密方式
+然后使用命令：alter user 'root'@'%' identified with mysql_native_password by '你的密码';
+如果上面的报错就使用下面这条命令
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的密码'; 
+
+接着找到my.cnf文件并加上加密方式：
+default_authentication_plugin=mysql_native_password（这步应该可以不用）

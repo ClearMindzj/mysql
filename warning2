@@ -9,3 +9,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的�
 
 接着找到my.cnf文件并加上加密方式：
 default_authentication_plugin=mysql_native_password（这步应该可以不用）
+
+使用mybatis可能出现时间相差14个小时，需要以下配置：
+set global time_zone = '+8:00';
+set time_zone = '+8:00';
